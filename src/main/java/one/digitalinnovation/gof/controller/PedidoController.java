@@ -5,6 +5,7 @@ import one.digitalinnovation.gof.payment.CartaoPagamento;
 import one.digitalinnovation.gof.payment.PagamentoStrategy;
 import one.digitalinnovation.gof.payment.PixPagamento;
 import one.digitalinnovation.gof.service.PedidoFacade;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +20,7 @@ public class PedidoController {
         this.pedidoFacade = pedidoFacade;
     }
 
+    @GetMapping("/realizar")
     public String realizarPedido(@RequestParam Long id,
                                  @RequestParam double valor, @RequestParam String metodo) {
         PagamentoStrategy pagamento;
